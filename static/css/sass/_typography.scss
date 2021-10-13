@@ -1,0 +1,73 @@
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: #0d0018;
+	line-height:1.5;
+	font-size:calc(14px + .5vw);
+}
+
+h1, h2, h3, h4, h5, h6,
+button,
+input,
+select,
+optgroup,
+textarea { 
+	line-height:1.1;
+	font-family:var(--sans-serif);
+}
+
+h1, .h1, .post-view .post-title, .XXL {font-size: calc(2.2em + 2vw);}
+
+h2, .h2, .XL {font-size: calc(1.9em + 1.5vw);}
+
+h3, .h3, .L {font-size: calc(1.6em + 1.5vw);}
+
+h4, .h4, .M {font-size: 1.45em;}
+
+h5, .h5, .S {font-size: 1em;}
+
+h6, .h6, .XS {font-size: .75em;}
+
+p.dropCap:first-letter {
+	color: var(--project-color);
+	float: left;
+	font-family: var(--serif);
+	font-size: 3.8em;
+	font-weight:600;
+	line-height: 1;
+	padding-top: .1em;
+	padding-right:.2em;
+	padding-left: .1em;
+}
+
+.serif {
+	font-family: var(--serif);
+}
+
+.upper {
+	text-transform: uppercase;
+}
+
+.lh-title {
+	line-height: 1;
+}
+
+.lh-short {
+	line-height: 1.25;
+}
+
+.f-900 {
+	font-weight: 900;
+}
+
+hr {
+	display: block;
+	background: var(--project-color);
+	width: 16.666%;
+	margin: 2rem auto;
+	height: 5px;
+	border-radius: 3px;
+}

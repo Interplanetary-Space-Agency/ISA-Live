@@ -1,0 +1,65 @@
+baseURL = "https://www.samkillermann.com/"
+languageCode = "en-us"
+title = "by Sam Killermann"
+
+[params]
+    author = "Sam Killermann"
+    description = "Sam's internet house! Featuring Killermann's work -- books, TEDxTalks, edugraphics, comedy shows, gender & sexuality & social justice resources -- that has reached hundreds of millions of people in over 238 countries."
+    og_image = "/img/sK-Social-Card-2018.png"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[build]
+    publish = "public"
+    command = "hugo"
+
+[menu]
+
+[[menu.main]]
+    identifier = "books"
+    name = "Books"
+    url = "/books/"
+    weight = -140
+
+[[menu.main]]
+    identifier = "work"
+    name = "Work"
+    url = "/work/"
+    weight = -130
+
+[[menu.main]]
+    identifier = "Blog"
+    name = "Blog"
+    url = "https://www.samk.blog/"
+    weight = -120
+
+[[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = -110
+
+[[menu.main]]
+    identifier = "now"
+    name = "Now"
+    url = "/now/"
+    weight = -100
+
+[[menu.main]]
+    identifier = "bio"
+    name = "Bio"
+    url = "/bio/"
+    weight = -90
+
+[taxonomies]
+    skills = "skills"
+    tags = "tags"
+
+[context.production.environment]
+    HUGO_VERSION = "0.60.1"
+
+[context.deploy-preview.environment]
+    HUGO_VERSION = "0.60.1"

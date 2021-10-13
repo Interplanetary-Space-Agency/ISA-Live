@@ -1,0 +1,62 @@
+{{ partial "header.html" . }}
+<header id="home-welcome" class="hero bigpad">
+    <div class="header-text">
+        <h1 class="page-title XXL">Hi! I'm sK.</h1>
+        <h2 class="page-sub-title L purple-300">An activist, artist, author person.</h2>
+        <p class="page-blurb lh-short M purple-500">
+            I create art, tools, & resources for global justice.
+        </p>
+    </div>
+    <div id="TEDxTalk">
+        <div class="youtube rounded" data-embed="NRcPXtqdKjE">
+            <div class="play-button purple-300">
+                <svg aria-hidden="true" data-prefix="fal" data-icon="play-circle" class="svg-inline--fa fa-play-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 504c137 0 248-111 248-248S393 8 256 8 8 119 8 256s111 248 248 248zM40 256c0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216-118.7 0-216-96.1-216-216zm331.7-18l-176-107c-15.8-8.8-35.7 2.5-35.7 21v208c0 18.4 19.8 29.8 35.7 21l176-101c16.4-9.1 16.4-32.8 0-42zM192 335.8V176.9c0-4.7 5.1-7.6 9.1-5.1l134.5 81.7c3.9 2.4 3.8 8.1-.1 10.3L201 341c-4 2.3-9-.6-9-5.2z"></path></svg>
+            </div>
+        </div>
+    </div>
+</header>
+<section id="home-brief" class="bg-white rounded overlapper">
+    <div class="inner">
+        <p class="M f-900 lh-short">
+            My life's work <span class="grey-700">is websites, books, curricula, edugraphics, comics, courses, keynotes, &amp; comedy shows that I use to tell a story about a world where everyone is healthy, understood, educated, &amp; safe.</span>
+        </p>
+    </div>
+    <div class="fishbowl">
+        <div class="fishbowl--inner"></div>
+        <div class="cta inner">
+            <a class="button with-icon" href="{{ `/` }}now" title="Read what I'm up to right now.">
+                What am I working on right now?
+                 <span class="icon">👀</span>
+            </a>
+            <a class="button with-icon" href="https://app.convertkit.com/landing_pages/402557?v=7" target="_blank" rel="noopener noreferrer">
+                Join my super special email list
+                 <span class="icon">💌</span></a>
+        </div>
+    </div>
+</section>
+<section id="featured-work" class="relative bigpad">
+    <h2 class="vertical-header S serif mobileHide">💼 &nbsp;&nbsp;Featured Work</h2>
+    {{ range where .Site.RegularPages "Section" "work"  }}
+        {{ if .Params.featured }}
+            {{ partial "featured-post.html" . }}
+        {{ end }}
+    {{ end }}
+</section>
+
+{{ partial "mailing-list.html" }}
+
+<section id="more-work" class="relative bg-grey-100">
+    <div class="carousel">
+        <h2 class="vertical-header S serif lh-title">Recent Work</h2>
+        {{ range first 10 (where .Site.RegularPages "Section" "work" ) }}
+            {{ if not ( .Params.featured ) }}
+                {{ partial "card-post.html" . }}
+            {{ end }}
+        {{ end }}
+        <article class="bigpad view-all serif">
+            <a href="{{ `/` }}work" title="View all Work"><strong>View more work &xrarr;</strong></a>
+        </article>
+    </div>
+</section>
+
+{{ partial "footer.html" . }}

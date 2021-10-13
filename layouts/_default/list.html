@@ -1,0 +1,56 @@
+{{ partial "header.html" . }}
+{{ if not .IsHome }}
+    <header class="list-header">
+        <div class="header-text">
+            {{ if eq .Data.Singular "tags" }}
+                <h1 class="list-title f-900 XL">
+                    {{ if .Data.Term }}
+                    {{ humanize .Data.Term }} <span class="purple-500 f-900">projects by sK</span>
+                    {{ else }}
+                    Themes <span class="purple-500 f-900">of sK's work</span>
+                    {{ end }}
+                </h1>
+            {{ else if eq .Data.Singular "skills" }}
+                <h1 class="list-title f-900 XL">
+                    {{ if .Data.Term }}
+                    <span class="purple-500 f-900">Projects where I wore the</span> {{ humanize .Data.Term | lower }} <span class="purple-500 f-900">hat.</span>
+                    {{ else }}
+                    <span class="purple-500 f-900">The many different</span> hats <span class="purple-500 f-900">I wear.</span>
+                    {{ end }}
+                </h1>
+            {{ else if isset .Params "title"}}
+                <h1 class="list-title f-900 XL">{{ humanize .Params.title }} <span class="purple-500 f-900">created by sK</span></h1>
+            {{ end }}
+            {{ if isset .Params "blurb" }}
+                <p class="post-blurb M f-900 lh-short">{{ .Params.blurb }}</p>
+            {{ end }}
+        </div>
+    </header>
+{{ end }}
+<section class="list-wrap">
+    <div class="list-contents shadow-high">
+        {{ $paginator := .Paginate (where .Pages ".Params.type" "!=" "page") (index .Site.Params "paginate" | default 100) }}
+        {{ if gt $paginator.TotalPages 0 }}
+            {{ range $index, $page := $paginator.Pages }}
+            {{ if and (eq $paginator.PageNumber 1) (eq $index 0) }}
+            {{ .Scratch.Set "postClass" "first-entry" }}
+        {{ end }}
+            {{ partial "featured-post.html" . }}
+        {{ end }}
+        {{ end }}
+    </div>
+</section>
+
+{{ if gt $paginator.TotalPages 1 }}
+<footer class="list-footer">
+  <nav class="pagination">
+    {{ if $paginator.HasPrev }}
+    <a class="pagination-prev" href="{{ $paginator.Prev.URL }}">← Prev</a>
+    {{ end }}
+    {{ if $paginator.HasNext }}
+    <a class="pagination-next" href="{{ $paginator.Next.URL }}">Next →</a>
+    {{ end }}
+  </nav>
+</footer>
+{{ end }}
+{{ partial "footer.html" . }}
