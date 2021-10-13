@@ -7,5 +7,6 @@ og_image: "/img/work/frugal.png"
 featured: false
 color: "#aaa"
 date: false
+featured: true
 
 ---
