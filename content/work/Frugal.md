@@ -6,6 +6,6 @@ link: "http://itspronouncedmetrosexual.com/2014/07/how-the-gender-neutral-bathro
 og_image: "/img/work/frugal.png"
 featured: false
 color: "#fff"
-featured: true
+featured: false
 
 ---
